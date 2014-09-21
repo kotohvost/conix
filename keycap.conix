@@ -1,0 +1,138 @@
+# FOR CONIX ONLY!!!
+# Файл описания клавиатуры для conix
+#      При настройке  на клавиатуру с помощью termcap-описания использу-
+# ются следующие описатели (подправленный кусок исходных текстов):
+#         /* Постоянная часть: */
+#         BACKSPACE,   "\010",
+#         TAB,         "\t",
+#         DELETE,      "\177",
+#         LineFeed,    "\n",       (^J или ^Enter)
+#         CR,          "\r",       (^M или Enter )
+#         ESC,         "\033\033",
+#         F1,          "\0331",
+#         F2,          "\0332",
+#         F3,          "\0333",
+#         F4,          "\0334",
+#         F5,          "\0335",
+#         F6,          "\0336",
+#         F7,          "\0337",
+#         F8,          "\0338",
+#         F9,          "\0339",
+#         F0,          "\0330",
+#
+#         /* переменная часть */
+#         /* настраивается из termcap */
+#         BACKSPACE,   "DC",
+#         DELETE,      "kD",
+#         F1,          "f1",
+#         F2,          "f2",
+#         F3,          "f3",
+#         F4,          "f4",
+#         F5,          "f5",
+#         F6,          "f6",
+#         F7,          "f7",
+#         F8,          "f8",
+#         F9,          "f9",
+#         F0,          "f0",
+#         Вправо,      "kr",
+#         Влево,       "kl",
+#         Вниз,        "kd",
+#         Вверх,       "ku",
+#         HOME,        "kh",
+#         HOME,        "Kh",
+#         END,         "k1",
+#         END,         "kE",
+#         Page Up,     "PU",
+#         Page Down,   "PD",
+#         Page Up,     "kP",
+#         Page Down,   "kN",
+#         Insert,      "kI",
+#         Insert,      "k4"
+#
+#         Help-Файл    "hC"
+#
+Mu|sun|Sun Microsystems Workstation console:\
+	:kd=\E[B:kl=\E[D:ku=\E[A:kr=\E[C:\
+	:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:\
+	:kI=\E[247z:kP=\E[216z:kN=\E[222z:kD=\177:kh=\E[214z:kE=\E[220z:\
+	:kF=\E[253z:kR=\E[254z:Kc=\E[197z:Kp=\E[199z:Ko=\E[198z:Kf=\E[196z:\
+	:kL=^Y:Kh=\E[214z:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:f1=\E[224z:f2=\E[225z:f3=\E[226z:f4=\E[227z:f5=\E[228z:f6=\E[229z:\
+	:f7=\E[230z:f8=\E[231z:f9=\E[232z:f0=\E[233z:
+#
+#
+sun-cmd|Sun Microsystems Workstation console:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:kd=\E[B:kl=\E[D:ku=\E[A:kr=\E[C:\
+	:kI=\E[247z:kP=\E[216z:kN=\E[222z:kD=\177:kh=\E[214z:kE=\E[220z:\
+	:kF=\E[253z:kR=\E[254z:Kc=\E[197z:Kp=\E[199z:Ko=\E[198z:Kf=\E[196z:\
+	:kL=^Y:Kh=\E[214z:\
+	:f1=\E[224z:f2=\E[225z:f3=\E[226z:f4=\E[227z:\
+	:f5=\E[228z:f6=\E[229z:f7=\E[230z:f8=\E[231z:\
+	:f9=\E[232z:f0=\E[233z:
+#
+#
+#
+#       :m1=\E[=8G:m2=\E[=4G:m3=\E[=15F:m4=\E[=5G:me=\E[=0G\E[=7F:\
+#  Описание консоли SCO UNIX (почти ansi)
+li|ansi|ansi80x25|Ansi standard crt:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:kI=\E[L:kP=\E[I:kN=\E[G:kD=\177:kh=\E[H:kE=\E[F:\
+	:kF=\E[T:kR=\E[S:Ko=^X:Kh=\E[H:kL=^Y:f1=\E[M:f2=\E[N:f3=\E[O:f4=\E[P:f5=\E[Q:\
+	:f6=\E[R:f7=\E[S:f8=\E[T:f9=\E[U:f0=\E[V:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:Kl=\E]c:\
+	:Kr=\E]e:
+#
+#
+xansi|Ansi emulator on rxvt:\
+	:hC=/usr/local/lib/conix/conix.hlp-ISO:\
+	:kI=\E[L:kP=\E[I:kN=\E[G:kD=\177:kh=\E[H:kE=\E[F:\
+	:kF=\E[T:kR=\E[S:Ko=^X:Kh=\E[H:kL=^Y:f1=\E[M:f2=\E[N:f3=\E[O:f4=\E[P:f5=\E[Q:\
+	:f6=\E[R:f7=\E[S:f8=\E[T:f9=\E[U:f0=\E[V:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:
+#
+#
+cons25|FreeBSD Console:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:kI=\E[L:kP=\E[I:kN=\E[G:kD=\177:kh=\E[H:kE=\E[F:\
+	:Kh=\E[H:kL=^Y:f1=\E[M:f2=\E[N:f3=\E[O:f4=\E[P:f5=\E[Q:\
+	:f6=\E[R:f7=\E[S:f8=\E[T:f9=\E[U:f0=\E[V:\
+	:kb=^h:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:
+#
+#
+#
+#
+#
+xterm|vs100|xterm terminal emulator (X Window System):\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:f1=\E[11~:f2=\E[12~:f3=\E[13~:f4=\E[14~:\
+	:f5=\E[15~:f6=\E[17~:f7=\E[18~:f8=\E[19~:\
+	:f9=\E[20~:f0=\E[21~:kI=\E[2~:\
+	:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:kb=^H:kd=\E[B:\
+	:kl=\E[D:km:kn#4:kr=\E[C:ku=\E[A:\
+	:kh=\E[H:kE=\EOw:kN=\E[6~:kP=\E[5~:
+#
+#
+# Описание изменено для работы red под перестроенным telnet
+d1|vt100|vt-100|pt100|pt-100|dec vt100:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:if=/usr/lib/tabset/vt100:ku=\E[A:kd=\E[B:kr=\E[C:kl=\E[D:\
+	:kh=\E[H:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:pt:xn:sr=5\EM:\
+	:ks=\E\075:ke=\E\076:\
+	:f1=\EOq:f2=\EOr:f3=\EOs:f4=\EOt:f5=\EOu:f6=\EOv:f7=\EOw:f8=\EOx:f9=\EOy:f0=\EOp:\
+	:Kh=\E[2~:kE=\E[5~:kI=\E[1~:kP=\E[3~:kN=\E[6~:\
+	:kL=^Y:kD=\E[4~:\
+	:kF=\EOl:kR=\EOS:Ko=^X:
+#
+#
+
+dl|vt200|vt220|vt200-js|vt220-js|dec vt200 series with jump scroll:\
+	:hC=/usr/local/lib/conix/conix.hlp:\
+	:ks=\E\075:ke=\E\076:\
+	:cs=%i\E[%2;%2r:\
+	:f1=\EOP:f2=\EOQ:f3=\EOR:f4=\EOS:\
+	:f6=\E[17~:f7=\E[18~:f8=\E[19~:f9=\E[20~:f0=\E[21~:\
+	:Kh=\E[1~:kE=\E[4~:kI=\E[2~:kP=\E[5~:kN=\E[6~:kD=\E[3~:\
+	:ku=\E[A:kd=\E[B:kr=\E[C:kl=\E[D:\
+	:kh=\E[H:

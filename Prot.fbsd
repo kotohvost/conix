@@ -1,0 +1,78 @@
+Mon Feb 10 19:08:48 MSK 1997
+cd Obj_fbsd;  make -f ../Makefile.build PRG=../conix_fbsd CFLAGS='-traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst=' LIBS='-lncurses'
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../ask.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../calcnext.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../calcpred.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../cmp_chrs.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../cmp_files.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../cmpitems.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../columns.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../commands.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../config.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../copyfile.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../devt_str.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../deletefile.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../deselectgroup.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../editfile.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../execcmd.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../fileattrs.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../filters.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../filtype.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../findcdir.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../findfile.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../go_to.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../hisnext.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../hispred.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../init.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../inp_menu.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../inregular.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../invertselect.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../main.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../makedir.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../menus.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../my_getcwd.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../outattrs.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../outwin.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../popdn.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../read_setup.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../read_to_panel.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../refr_inp.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../refr_panel.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../renmove.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../save_setup.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../selectgroup.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../set_clear.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../soob.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../swap_bin.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../tst_err_malloc.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= -DALRM_KB ../keyboard/getkey_.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../keyboard/kb_asin.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../keyboard/keyscmd_.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../keyboard/setkey_.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../keyboard/t_termlib.c
+../keyboard/t_termlib.c:237: warning: static declaration for `t_tskip' follows non-static
+../keyboard/t_termlib.c:337: warning: static declaration for `t_tdecode' follows non-static
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../do_exit.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../alrm_hand.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../do_alarms.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../recode.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../viewkill.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../name_to_out.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../keyboard/my_raw.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../filesys_inf.c
+/usr/include/sys/mount.h: In function `filesys_inf':
+In file included from ../filesys_inf.c:129:
+/usr/include/sys/mount.h:509: warning: type of external `getvfsbyname' is not global
+/usr/include/sys/mount.h:510: warning: type of external `getvfsbytype' is not global
+/usr/include/sys/mount.h:511: warning: type of external `getvfsent' is not global
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../show_inf.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../mknumber.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../ext_view.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../ext_enter.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../ext_action.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../refr_brief.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../misc.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../files_on_page.c
+cc -c -traditional -O -DFREEBSD -DNCURSES -DNOIFNAM -Dconst= ../viewfile.c
+cc -o ../conix_fbsd  ask.o             calcnext.o        calcpred.o        cmp_files.o       cmp_chrs.o        cmpitems.o        columns.o         commands.o        config.o          copyfile.o        devt_str.o        deletefile.o      deselectgroup.o   editfile.o        execcmd.o         fileattrs.o       filters.o         filtype.o         findcdir.o        findfile.o        go_to.o           hisnext.o         hispred.o         init.o            inp_menu.o        inregular.o       invertselect.o    main.o            makedir.o         menus.o           my_getcwd.o       outattrs.o        outwin.o          popdn.o           read_setup.o      read_to_panel.o   refr_inp.o        refr_panel.o      renmove.o         save_setup.o      selectgroup.o     set_clear.o       soob.o            swap_bin.o        tst_err_malloc.o  getkey_.o         kb_asin.o         keyscmd_.o        setkey_.o         t_termlib.o       do_exit.o         alrm_hand.o       do_alarms.o       viewfile.o        recode.o          viewkill.o        my_raw.o            filesys_inf.o     show_inf.o        mknumber.o        name_to_out.o     ext_view.o        ext_enter.o       ext_action.o      refr_brief.o      misc.o            files_on_page.o   -lncurses -s '-mr,"`date`"'
+Mon Feb 10 19:12:20 MSK 1997

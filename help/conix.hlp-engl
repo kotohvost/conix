@@ -1,0 +1,402 @@
+		      Some notes about conix
+		    (instead of documentation)
+		   ----------------------------
+							Sorry for my poor
+							English :(
+
+		Main facilities (of course, something is lost):
+		-----------------------------------------------
+
+ - Platforms: SUN SPRAC & x86 Solaris 2.4+, SCO UNIX
+ - Control keys  (some of that keys can be used with conix keyboard
+   description only):
+     ^J, ^T, ^X, ^E, ^O, ^U, ^\, ^], ^R, ^D, ^N, ^C, ^P, ^G, ^W, ^K, ^L
+ - Columns configuration
+  (there are 2 templates: ^D - Default, ^N - long Names)
+ - Current directory full path substitution (^J on ".")
+ - Process control (view & kill) ^P
+ - disk space information (^L)
+ - Full-screen panels (^W)
+ - external viewer & "execer" defining
+ - Filename filters
+ - Searching with "find". Previous search results reusing (/tmp/conixXXXXXX).
+
+ - Built-in commands: cd [...], exit (F10, ^C)
+ - Command is executed only when the first character isn't space, oterwhise -
+   change directory.
+ - Marking with +,-,* when cursor is in the first position of command line
+ - Changing directory using directories list.
+ - Conix configuration can be saved in current dir or in home dir.
+ - Editor can be described in environment variable EDITOR, default - redin
+ - Conix executable name must begin from "conix"
+ - Files & dirs comparation. Dirs comparation parameters may be configured.
+ - Configuration of prompt
+ - Quick search in current directory (^K)
+ - Commands history
+ - Black & white mode (NOCOLORCONIX environment variable)
+ - Cyrillic recodings in viewer
+ - Current directory of non-active panel may be set to the current directory
+   of active panel by pressing ^G
+ - Utils tar, cp, mv, rm are used for copying, moving and removing.
+
+==============================================================================
+
+Configuration information:
+    Files:
+      /usr/local/lib/conix/keycap.conix
+      /usr/local/lib/conix/conix.hlp
+			 --\
+      .conix.ini           |  V1.0+
+      .conix.goto          |  V1.0+   In current or home directory
+      .conix.view.ext      |  V1.4+
+      .conix.enter.ext     |  V1.4+
+			 --/
+    Environment variables:
+      CONIXKEYS or, if it doesn't exist /usr/local/lib/conix/keycap.conix
+		or TERMCAP
+	 That description is used for keyboard recognition ONLY.
+	 If neither of that is found, then TERMINFO description is used
+      TERM, TERMINFO - as everywhere
+      NOCOLORCONIX
+      EDITOR
+
+==============================================================================
+
+Conix version number is increased in any change after distribution.
+-------------------------------------------------------------------
+
+		   Comments on conix 1.0
+     1. Screen.
+     Conix was developed on a base of using documented facilities of
+curses(3X) library, so its correctness depends of bugs in curses and
+terminal description in terminfo database.
+
+     2. Keyboard.
+     Conix can use "standard" way to work with keyboard (with curses
+functions) or its own way using special termcap-like keyboard
+description. The sequence for finding description is the next:
+
+     - if environment variable CONIXKEYS is defined, then its value
+is used as name of file, which contains termcap-description of terminal
+(keyboard description fields are used only). In that case value must
+contain full path to the file.
+     Else:
+     - if environment variable TERMCAP is defined, then its value
+is used as name of file, which contains termcap-description of terminal.
+     Elsewhere curses functions are used.
+
+     Conix uses the next fields of termcap-description:
+
+	/* constant part: */
+	BACKSPACE,   "\010",
+	TAB,         "\t",
+	DELETE,      "\177",
+	LineFeed,    "\n",       (^J or ^Enter)
+	CR,          "\r",       (^M or Enter )
+	ESC,         "\033\033",
+	F1,          "\0331",
+	F2,          "\0332",
+	F3,          "\0333",
+	F4,          "\0334",
+	F5,          "\0335",
+	F6,          "\0336",
+	F7,          "\0337",
+	F8,          "\0338",
+	F9,          "\0339",
+	F0,          "\0330",
+
+	/* dinamic part */
+	/* adapted while reading termcap description */
+	BACKSPACE,   "DC",
+	DELETE,      "kD",
+	F1,          "f1",
+	F2,          "f2",
+	F3,          "f3",
+	F4,          "f4",
+	F5,          "f5",
+	F6,          "f6",
+	F7,          "f7",
+	F8,          "f8",
+	F9,          "f9",
+	F0,          "f0",
+	Right,       "kr",
+	Left,        "kl",
+	Down,        "kd",
+	Up,          "ku",
+	HOME,        "kh",
+	HOME,        "Kh",
+	END,         "k1",
+	END,         "kE",
+	Page Up,     "PU",
+	Page Down,   "PD",
+	Page Up,     "kP",
+	Page Down,   "kN",
+	Insert,      "kI",
+	Insert,      "k4",
+    Conix searches key meaning in that direction stopping when finds
+first equal sequence.
+
+     3. Filters in Left/Right menus.
+Two filters can be set:
+  First (Read) sets filenames mask to be visible in panel.
+  Second (NoRead) sets filenames mask to be NOT visible in panel.
+Setting both filters has result like:
+  ls -a | grep <Read-filter> | grep -v <NoRead-filter>
+
+     4. Columns configuration (Left/Right)/Columns.
+     That one become very simple after some experiments. Just note that
+shown Name width means just minimal width. Real width is calculated with
+condition of panel filling. That can be used for displaying long file
+names.
+
+     5. Find files "Commands/Find file".
+     Conix uses "find" utility. First argument to that one is the
+string from "Start in directory" field, second argument: "-print" and
+the third argument is content of "File(s)" field. You can use all allowed
+for "find" metacharacters because they are passed without preprocessing.
+     Finding process can be canceled by (twice) typing Esc.
+     Previous find results can be used (they are saved in /tmp/conixXXXXXX).
+
+     6. Commands input and executing.
+     Built-in commands: cd, exit.
+     Command is executed only if the first character of command line is not
+space. That may be used in journey on filesystem with filled command line.
+     If cursor is in first position of command line then characters +,-,*
+are interpreted as Select, Deselect and Invert selection respectively.
+
+     7. Work directory changing with using "Commands/Go to..."
+     List of directories is readed from $HOME/.conix.goto file. Files and
+directories can be listed there both. When filename is selected, than conix
+attempts to set "pointer" to that file. Special strings: " HOME DIRECTORY"
+and " OTHER PANEL DIRECTORY" may be used as names of $HOME and other panel
+current directory respectively (without commas but with leading space).
+
+     8. Saving configuration with "Options/Save setup".
+     Current conix configuration is saved in file $HOME/.conix.ini or
+./.conix.ini (there is a prompt before saving).
+     When conix is starting it looks for a ./.conix.ini file first, then
+$HOME/.conix.ini.
+
+     9. File editing.
+     Conix calls editor, which is described by environment variable EDITOR.
+If that variable doesn't exist then editor "re" is called.
+
+     10. "Type" column meaning (it is displayed without a title).
+      / - directory
+      $ - character special
+      # - block special
+      | - FIFO
+      ~ - XENIX special named file
+      > - Symbolic Link
+      L - Regular file hard links >1
+      ? - Unknown file type
+
+     11. Control keys  (some of that keys can be used with conix keyboard
+description only):
+
+     ^J, ^T, ^X, ^E, ^O, ^U, ^\, ^], ^R
+
+     12. The name of executable must begin with "conix". If you don't like
+that name, write a script with a lovely name...
+
+     13. Two files comparing (Commands/compare Two files).
+     Conix calls "cmp" utility for that operation. If cmp result is 0, then
+conix says that files are identical, 1 - different; all other codes are
+interpreted as error. In that case when comparing two files
+(Commands/compare Two files) error messege is displayed, or when comparing
+directories with set "Contence" parameter (see below) user is prompted
+for continuation and both files are marked.
+     When comparing two directories the files contence are compared only
+in case of all other compared attributes are the same and "Contence" in
+Options/Configuration is set.
+     You can compare file with itself ( if want :)
+     Only regular files are compared!
+
+     14. BUGS & Warnings !!! :(
+     Conix uses standard utilities (tar, cp, mv), so results of operations
+depend of that programs. Conix does not check command correctness, just
+exiting code.
+     Directories removing is done by invoking rm -rf ...
+     Conix doesn't show some file attributes
+     File modification date is displayed in format dd.mm.yy only. Time may
+depend of what localtime() gives, so be careful when work in NFS filesystem.
+
+______________________________________________________________________
+		   Conix 1.1 release notes
+
+     1. Fixed bug in pseudographics output in a window shadow.
+     2. Some beeps were removed.
+     3. Now user can change prompt: short (>), hostname, user@hostname.
+     4. Menu selections are changed:
+	 Options/  Configuration..  --> Comparation
+	 Commands/ fInd in curr.dir --> find in curr.Dir
+     5. Fixed bug in top menu refreshing.
+     6. Repeated commands now are not written to history.
+     7. Some field types are added.
+     8. SetUID, SetGID, Stickly (s,S, T,t) are displayed if a mode filed of
+	panels.
+     9. ^K may be used for file finding in current directory.
+     10. It is not nessesary an availability of current directory for 'cd'
+	 command (other commands execution requires that).
+     11. Typing LineFeed (^J) with a pointer placed on current directory
+	 name (".") the full path can be substituted to the command line.
+     12. Hot-keys now can be used in menus.
+     13. Number of first displayed line is shown on view mode (F3).
+	 But that number is undefined (shown as '?') when viewing the end
+	 of file because conix doesn't read whole file to count lines.
+     14. Arrows can be used for commands history selecting when both panels
+	 are off. Also Home/End keys can be used in that case.
+     15. Added clock (Options/cLock).
+
+______________________________________________________________________
+		   Conix 1.2 release notes
+
+     1. Search function (F7) now added in view mode (F3). Searching
+	ignores case of latin characters. Does not expand metacharacters.
+
+     2. Works with "non-localized" cyrillic (now conix does not use
+	isprint() macro).
+     3. Fixed bug on redrawing screen when finishing viewing. May be
+	that bug was on curses or in TERMINFO ansi description...
+     4. File searching in current directory (Commands/find in curr.Dir
+	^K) now goes down from current file, then from the top of
+	filelist in panel.
+     5. Non-used fuctional keys now not displayed at bottom menu.
+     6. "Default" string in columns configuration is changed to
+	"Template". With that function some templates can be used.
+     7. Added checking of NOCOLORCONIX environment variable. Using
+	black&white conix can help to work faster on slow networks.
+     8. mv(1) is now called with "-f" switch when moving files/dirs.
+
+______________________________________________________________________
+
+	       Conix 1.2 release notes
+		  (+conix for Solaris for x86
+		   +conix for Solaris 1 SPARC)
+
+     1. Cyrillics recoding function (F8) is added in view mode (F3).
+	From... means file encoding and To... means screen "encoding".
+	Eny equival From & To combination means no recoding.
+	That settings are never saved in setup configuration files.
+     2. Conix now doesn't try to go to directory which has not accessable
+	for reading & executing.
+     3. Process control (view & kill) now added (Commands/pRocess control).
+	The "ps -ef" command is used for that functionality. In that mode
+	F8 - sending signal, F9 - selecting signal to send (initial signal
+	is SIGTERM (15) ).
+     4. In Columns/Template/LongNames template field Size now added.
+     5. Prompt is red (STANDOUT in black&white) when conix runs with root
+	permissions (getuid() or geteuid() return 0).
+     6. User name is a result of getuid() when getlogin() fails. That can
+	be happend in some types of remote commands executing.
+     7. Control characters in filenames now are displayed properly in
+	panels and in popup windows (for ex. - Delete).
+     8. Some beeps removed.
+     9. Info panel type now available (Ctrl/L).
+     10. Now message "File not found" displayed when no files found on
+	 Commands/Find.
+     11. User filter (F6) added to Commands/pRocess control.
+     12. Case sensitivity is now dynamic in search on view mode:
+	 it is sensitive if there are Upper&Lower case characters in
+	 the search sample, elsewhise - non-sensitive.
+     13. Added "Next" search (F3) in view mode.
+     14. Searching algorithm was modified to encrease speed.
+     15. In SPARC version (#ifdef sparc) character '\0200' is changing
+	 to 'A' in view mode (F3). That was done because curses in
+	 Solaris 2.3 & 2.4 ignores that character. May be that depends
+	 of something else, but I don't know.
+
+______________________________________________________________________
+		    Conix 1.4 release notes
+
+     1. Now it is possible to specify the way in which conix would show
+	(when F3 is pressed) specified files and "execute" non-executable
+	files (on pressing Enter on that file). File configuration:
+	    filespec command
+	Metacharacter "*" can be used in file specifications.
+	File name is substituted to the end of command line.
+	Direction of descriptions can be meaningful on some cases:
+
+	*.tar.gz        arcview TAR_GZ
+	*.gz            arcview GZ
+
+	File specification without "*" means only file with that name.
+
+	Viewing rules (viewer) must be described in ./.conix.view.ext or
+	~/.conix.view.ext file.
+	"Executing" rules must be described in ./.conix.enter.ext or
+	~/.conix.enter.ext file.
+	Conix searches that files in current directory first, then in
+	user home directory.
+
+     2. Added help facility. Help file can be specified in hC descriptor
+     in TERMCAP keyboard description.
+     If no help file found, conix doesn't display "Help" in bottom menu.
+
+     3. When environment variable doesn't exist, conix tryes to find
+       keyboard description in /usr/local/lib/conix/keycap.conix.
+
+     4. Brief panel mode is added now. So menus Left/Right are changed.
+
+______________________________________________________________________
+		    Conix 1.5 release notes
+
+     1. Current directory of non-active panel may be set to the
+	current directory of active panel by pressing ^G
+     2. Quick jump to the process control mode may be achieved by
+	pressing ^P
+
+______________________________________________________________________
+		    Conix 1.6 release notes
+
+     1. Added "Next" search (F3) in process control mode.
+     2. Quick switch between templates "Default" and "Long names" can
+	be done by presing keys ^N and ^D respectively.
+     3. Default prompt on Delete (F8) is now "Cancel"!
+     4. Added simple check to warn files/dirs overwriting in
+	Copy & RenMov.
+
+______________________________________________________________________
+		    Conix 1.7 release notes
+
+     1. Wide (full screen) panels can be used (^W or double Width in
+	Commands pop-down menu).
+     2. If hC doesn't exists in TERMCAP keyboard description or file
+	is not accessable, conix tryes to get access to
+	/usr/local/lib/conix/conix.hlp file.
+     3. Added "about conix..." in "Files" pop-down menu.
+     4. If environment variable EDITOR doesn't exist then "redin" is
+	called.
+     5. Bug fixed, when Brief mode went out after double ^L.
+     6. ^U in wide mode has the same meaning as <TAB>.
+     7. Bug fixed in refreshing screen after command in Unsorted mode.
+     8. Additional checkings are added in directory changing (for root
+	on NFS especially).
+     9. Half screen shift added in view mode (Ctrl-left, Ctrl-right)
+
+______________________________________________________________________
+		    Conix 1.8 release notes
+     1. Conix now works in Linux (1.2.13). Clocks doesn't work
+	in Linux (errors getting ESC-seq.) Some screen operations are
+	still buggy :(
+     2. Works in FreeBSD
+     3. Default Cyrillic recoding may be set with next environment vars:
+	CONIXFILESCODE - file encoding
+	CONIXTERMCODE  - screen encoding
+	Legal values: "ALT","ISO","KOI","MSWIN"
+	Case non-sensetive.
+
+______________________________________________________________________
+		    Conix 1.9 release notes
+     1. Added file type '=' which means:  S_IFIFO | S_IFSOCK.
+	For ex. /etc/.name_service_door in Solaris 2.5
+
+______________________________________________________________________
+		    Conix 1.10 release notes
+     1. Bug with ignoring '\0377' character fixed.
+
+
+--------------------------------------------------------------------------
+--     Feel free to send comments and wishes to sir@cb.tver.ru  ;)      --
+--                                               Serguei I. Revtov      --
+--------------------------------------------------------------------------

@@ -1,0 +1,279 @@
+SHELL=/bin/sh
+COMMENT='-mr,"`date`"'
+LDFLAGS=-s ${COMMENT}
+CFLAGS=-O
+CC=cc
+LIBS=-lcurses -ltermlib
+all:    ${PRG}
+
+${PRG}: ask.o\
+	calcnext.o\
+	calcpred.o\
+	cmp_chrs.o\
+	cmp_files.o\
+	cmpitems.o\
+	columns.o\
+	commands.o\
+	config.o\
+	copyfile.o\
+	devt_str.o\
+	deletefile.o\
+	deselectgroup.o\
+	editfile.o\
+	execcmd.o\
+	fileattrs.o\
+	filters.o\
+	filtype.o\
+	findcdir.o\
+	findfile.o\
+	go_to.o\
+	hisnext.o\
+	hispred.o\
+	init.o\
+	inp_menu.o\
+	inregular.o\
+	invertselect.o\
+	main.o\
+	makedir.o\
+	menus.o\
+	my_getcwd.o\
+	outattrs.o\
+	outwin.o\
+	popdn.o\
+	read_setup.o\
+	read_to_panel.o\
+	refr_inp.o\
+	refr_panel.o\
+	renmove.o\
+	save_setup.o\
+	selectgroup.o\
+	set_clear.o\
+	soob.o\
+	swap_bin.o\
+	tst_err_malloc.o\
+	getkey_.o\
+	kb_asin.o\
+	keyscmd_.o\
+	setkey_.o\
+	t_termlib.o\
+	do_exit.o\
+	alrm_hand.o\
+	do_alarms.o\
+	recode.o\
+	viewkill.o\
+	name_to_out.o\
+	my_raw.o\
+	filesys_inf.o\
+	show_inf.o\
+	mknumber.o\
+	ext_view.o\
+	ext_enter.o\
+	ext_action.o\
+	refr_brief.o\
+	misc.o\
+	files_on_page.o\
+	viewfile.o
+	$(CC) -o ${PRG} \
+	ask.o            \
+	calcnext.o       \
+	calcpred.o       \
+	cmp_files.o      \
+	cmp_chrs.o       \
+	cmpitems.o       \
+	columns.o        \
+	commands.o       \
+	config.o         \
+	copyfile.o       \
+	devt_str.o       \
+	deletefile.o     \
+	deselectgroup.o  \
+	editfile.o       \
+	execcmd.o        \
+	fileattrs.o      \
+	filters.o        \
+	filtype.o        \
+	findcdir.o       \
+	findfile.o       \
+	go_to.o          \
+	hisnext.o        \
+	hispred.o        \
+	init.o           \
+	inp_menu.o       \
+	inregular.o      \
+	invertselect.o   \
+	main.o           \
+	makedir.o        \
+	menus.o          \
+	my_getcwd.o      \
+	outattrs.o       \
+	outwin.o         \
+	popdn.o          \
+	read_setup.o     \
+	read_to_panel.o  \
+	refr_inp.o       \
+	refr_panel.o     \
+	renmove.o        \
+	save_setup.o     \
+	selectgroup.o    \
+	set_clear.o      \
+	soob.o           \
+	swap_bin.o       \
+	tst_err_malloc.o \
+	getkey_.o        \
+	kb_asin.o        \
+	keyscmd_.o       \
+	setkey_.o        \
+	t_termlib.o      \
+	do_exit.o        \
+	alrm_hand.o      \
+	do_alarms.o      \
+	viewfile.o       \
+	recode.o         \
+	viewkill.o       \
+	my_raw.o           \
+	filesys_inf.o    \
+	show_inf.o       \
+	mknumber.o       \
+	name_to_out.o    \
+	ext_view.o       \
+	ext_enter.o      \
+	ext_action.o     \
+	refr_brief.o     \
+	misc.o           \
+	files_on_page.o  \
+	${LIBS} ${LDFLAGS}
+ask.o:            ../ask.c
+	${CC} -c ${CFLAGS} ../ask.c
+calcnext.o:       ../calcnext.c
+	${CC} -c ${CFLAGS} ../calcnext.c
+calcpred.o:       ../calcpred.c
+	${CC} -c ${CFLAGS} ../calcpred.c
+cmp_files.o:      ../cmp_files.c
+	${CC} -c ${CFLAGS} ../cmp_files.c
+cmp_chrs.o:      ../cmp_chrs.c
+	${CC} -c ${CFLAGS} ../cmp_chrs.c
+cmpitems.o:       ../cmpitems.c
+	${CC} -c ${CFLAGS} ../cmpitems.c
+columns.o:        ../columns.c
+	${CC} -c ${CFLAGS} ../columns.c
+commands.o:       ../commands.c
+	${CC} -c ${CFLAGS} ../commands.c
+config.o:         ../config.c
+	${CC} -c ${CFLAGS} ../config.c
+copyfile.o:       ../copyfile.c
+	${CC} -c ${CFLAGS} ../copyfile.c
+devt_str.o:       ../devt_str.c
+	${CC} -c ${CFLAGS} ../devt_str.c
+deletefile.o:     ../deletefile.c
+	${CC} -c ${CFLAGS} ../deletefile.c
+deselectgroup.o:  ../deselectgroup.c
+	${CC} -c ${CFLAGS} ../deselectgroup.c
+editfile.o:       ../editfile.c
+	${CC} -c ${CFLAGS} ../editfile.c
+execcmd.o:        ../execcmd.c
+	${CC} -c ${CFLAGS} ../execcmd.c
+fileattrs.o:      ../fileattrs.c
+	${CC} -c ${CFLAGS} ../fileattrs.c
+filters.o:        ../filters.c
+	${CC} -c ${CFLAGS} ../filters.c
+filtype.o:        ../filtype.c
+	${CC} -c ${CFLAGS} ../filtype.c
+findcdir.o:       ../findcdir.c
+	${CC} -c ${CFLAGS} ../findcdir.c
+findfile.o:       ../findfile.c
+	${CC} -c ${CFLAGS} ../findfile.c
+go_to.o:          ../go_to.c
+	${CC} -c ${CFLAGS} ../go_to.c
+hisnext.o:        ../hisnext.c
+	${CC} -c ${CFLAGS} ../hisnext.c
+hispred.o:        ../hispred.c
+	${CC} -c ${CFLAGS} ../hispred.c
+init.o:           ../init.c
+	${CC} -c ${CFLAGS} ../init.c
+inp_menu.o:       ../inp_menu.c
+	${CC} -c ${CFLAGS} ../inp_menu.c
+inregular.o:      ../inregular.c
+	${CC} -c ${CFLAGS} ../inregular.c
+invertselect.o:   ../invertselect.c
+	${CC} -c ${CFLAGS} ../invertselect.c
+main.o:           ../main.c
+	${CC} -c ${CFLAGS} ../main.c
+makedir.o:        ../makedir.c
+	${CC} -c ${CFLAGS} ../makedir.c
+menus.o:          ../menus.c
+	${CC} -c ${CFLAGS} ../menus.c
+my_getcwd.o:      ../my_getcwd.c
+	${CC} -c ${CFLAGS} ../my_getcwd.c
+outattrs.o:       ../outattrs.c
+	${CC} -c ${CFLAGS} ../outattrs.c
+outwin.o:         ../outwin.c
+	${CC} -c ${CFLAGS} ../outwin.c
+popdn.o:          ../popdn.c
+	${CC} -c ${CFLAGS} ../popdn.c
+read_setup.o:     ../read_setup.c
+	${CC} -c ${CFLAGS} ../read_setup.c
+read_to_panel.o:  ../read_to_panel.c
+	${CC} -c ${CFLAGS} ../read_to_panel.c
+refr_inp.o:       ../refr_inp.c
+	${CC} -c ${CFLAGS} ../refr_inp.c
+refr_panel.o:     ../refr_panel.c
+	${CC} -c ${CFLAGS} ../refr_panel.c
+renmove.o:        ../renmove.c
+	${CC} -c ${CFLAGS} ../renmove.c
+save_setup.o:     ../save_setup.c
+	${CC} -c ${CFLAGS} ../save_setup.c
+selectgroup.o:    ../selectgroup.c
+	${CC} -c ${CFLAGS} ../selectgroup.c
+set_clear.o:      ../set_clear.c
+	${CC} -c ${CFLAGS} ../set_clear.c
+soob.o:           ../soob.c
+	${CC} -c ${CFLAGS} ../soob.c
+swap_bin.o:       ../swap_bin.c
+	${CC} -c ${CFLAGS} ../swap_bin.c
+tst_err_malloc.o: ../tst_err_malloc.c
+	${CC} -c ${CFLAGS} ../tst_err_malloc.c
+getkey_.o:        ../keyboard/getkey_.c
+	${CC} -c ${CFLAGS} -DALRM_KB ../keyboard/getkey_.c
+kb_asin.o:        ../keyboard/kb_asin.c
+	${CC} -c ${CFLAGS} ../keyboard/kb_asin.c
+keyscmd_.o:       ../keyboard/keyscmd_.c
+	${CC} -c ${CFLAGS} ../keyboard/keyscmd_.c
+setkey_.o:        ../keyboard/setkey_.c
+	${CC} -c ${CFLAGS} ../keyboard/setkey_.c
+t_termlib.o:      ../keyboard/t_termlib.c
+	${CC} -c ${CFLAGS} ../keyboard/t_termlib.c
+viewfile.o:       ../viewfile.c
+	${CC} -c ${CFLAGS} ../viewfile.c
+do_exit.o:        ../do_exit.c
+	${CC} -c ${CFLAGS} ../do_exit.c
+alrm_hand.o:      ../alrm_hand.c
+	${CC} -c ${CFLAGS} ../alrm_hand.c
+do_alarms.o:      ../do_alarms.c
+	${CC} -c ${CFLAGS} ../do_alarms.c
+recode.o:      ../recode.c
+	${CC} -c ${CFLAGS} ../recode.c
+viewkill.o:    ../viewkill.c
+	${CC} -c ${CFLAGS} ../viewkill.c
+name_to_out.o:  ../name_to_out.c
+	${CC} -c ${CFLAGS} ../name_to_out.c
+my_raw.o:         ../keyboard/my_raw.c
+	${CC} -c ${CFLAGS} ../keyboard/my_raw.c
+filesys_inf.o:  ../filesys_inf.c
+	${CC} -c ${CFLAGS} ../filesys_inf.c
+show_inf.o:     ../show_inf.c
+	${CC} -c ${CFLAGS} ../show_inf.c
+mknumber.o:     ../mknumber.c
+	${CC} -c ${CFLAGS} ../mknumber.c
+ext_view.o:     ../ext_view.c
+	${CC} -c ${CFLAGS} ../ext_view.c
+ext_action.o:   ../ext_action.c
+	${CC} -c ${CFLAGS} ../ext_action.c
+ext_enter.o:    ../ext_enter.c
+	${CC} -c ${CFLAGS} ../ext_enter.c
+refr_brief.o:    ../refr_brief.c
+	${CC} -c ${CFLAGS} ../refr_brief.c
+misc.o:          ../misc.c
+	${CC} -c ${CFLAGS} ../misc.c
+files_on_page.o: ../files_on_page.c
+	${CC} -c ${CFLAGS} ../files_on_page.c
+

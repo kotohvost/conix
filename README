@@ -1,0 +1,44 @@
+Russian "Alternative" code
+
+Исходные тексты conix - Commander for UNIXs. Комментарии сделаны в
+т.н. "Альтернативной" кодировке.
+
+!!!!! При перекодировке - осторожно с recode.c !!!!!
+
+Сборка - обычно через 'mk'. В нем используется перемнная среды SYSTEM - тип
+операционной системы типа setenv SYSTEM `uname -s`, хотя не совсем:
+  sco*:
+  pc*:
+	SCO UNIX
+  SunOS:
+	Solaris 2.x for SUNs
+  i86pc:
+	Solaris 2.x for x86
+  sol1:
+	Solaris 1.? for SUNs, не отлажено
+  VAX:
+	Какой-то Ultrix, не отлажено
+  LINUX:
+	Linux, не все блохи пойманы, особенно с ncurses
+
+  FreeBSD:
+	FreeBSD, говорят, на консоли работает нормально.
+
+Если нет каталога для *.o (Obj_*), значит он просто был пустой и в Вашей
+системе не скинулся.
+Создайте его.
+
+Собранный вариант рекомендуется положить в /usr/local/bin/conix, файл
+conix.hlp - в /usr/local/lib/conix/conix.hlp, файл описания клавиатуры
+(если в нем есть соответствующее описание) - в
+/usr/local/lib/conix/keycap.conix
+
+Основные системно-зависимые определения:
+
+NOCOLORCURSES  - используется curses без функций работы с цветом
+NCURSES        - ncurses в Linux не имеет функции wbkgd
+SOLARIS1       - костыли для какой-нибудь работы в Solaris 1.x
+NOIFNAM        - в stat.h нет S_IFNAM
+
+					Пишите письма на sir@cb.tver.ru
+					Ревтов Сергей

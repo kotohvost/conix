@@ -1,0 +1,142 @@
+Sun Nov  9 17:25:48 MSK 1997
+cd Obj_sun; \
+pmake -f ../Makefile.build PRG=../conix_sun
+cc -c -O ../ask.c
+cc -c -O ../calcnext.c
+cc -c -O ../calcpred.c
+cc -c -O ../cmp_chrs.c
+cc -c -O ../cmp_files.c
+cc -c -O ../cmpitems.c
+cc -c -O ../columns.c
+cc -c -O ../commands.c
+cc -c -O ../config.c
+cc -c -O ../copyfile.c
+cc -c -O ../devt_str.c
+cc -c -O ../deletefile.c
+cc -c -O ../deselectgroup.c
+cc -c -O ../editfile.c
+cc -c -O ../execcmd.c
+cc -c -O ../fileattrs.c
+cc -c -O ../filters.c
+cc -c -O ../filtype.c
+cc -c -O ../findcdir.c
+cc -c -O ../findfile.c
+cc -c -O ../go_to.c
+cc -c -O ../hisnext.c
+cc -c -O ../hispred.c
+cc -c -O ../init.c
+cc -c -O ../inp_menu.c
+cc -c -O ../inregular.c
+cc -c -O ../invertselect.c
+cc -c -O ../main.c
+cc -c -O ../makedir.c
+cc -c -O ../menus.c
+cc -c -O ../my_getcwd.c
+cc -c -O ../outattrs.c
+cc -c -O ../outwin.c
+cc -c -O ../popdn.c
+cc -c -O ../read_setup.c
+cc -c -O ../read_to_panel.c
+cc -c -O ../refr_inp.c
+cc -c -O ../refr_panel.c
+cc -c -O ../renmove.c
+cc -c -O ../save_setup.c
+cc -c -O ../selectgroup.c
+cc -c -O ../set_clear.c
+cc -c -O ../soob.c
+cc -c -O ../swap_bin.c
+cc -c -O ../tst_err_malloc.c
+cc -c -O -DALRM_KB ../keyboard/getkey_.c
+cc -c -O ../keyboard/kb_asin.c
+cc -c -O ../keyboard/keyscmd_.c
+cc -c -O ../keyboard/setkey_.c
+cc -c -O ../keyboard/t_termlib.c
+cc -c -O ../do_exit.c
+cc -c -O ../alrm_hand.c
+cc -c -O ../do_alarms.c
+cc -c -O ../recode.c
+cc -c -O ../viewkill.c
+cc -c -O ../name_to_out.c
+cc -c -O ../keyboard/my_raw.c
+cc -c -O ../filesys_inf.c
+cc -c -O ../show_inf.c
+cc -c -O ../mknumber.c
+"/usr/include/sys/statvfs.h", line 49: warning: dubious tag in function prototype: struct statvfs
+"/usr/include/sys/statvfs.h", line 50: warning: dubious tag in function prototype: struct statvfs
+cc -c -O ../ext_view.c
+cc -c -O ../ext_enter.c
+cc -c -O ../ext_action.c
+cc -c -O ../refr_brief.c
+cc -c -O ../misc.c
+cc -c -O ../files_on_page.c
+cc -c -O ../viewfile.c
+cc -o ../conix_sun \
+ask.o            \
+calcnext.o       \
+calcpred.o       \
+cmp_files.o      \
+cmp_chrs.o       \
+cmpitems.o       \
+columns.o        \
+commands.o       \
+config.o         \
+copyfile.o       \
+devt_str.o       \
+deletefile.o     \
+deselectgroup.o  \
+editfile.o       \
+execcmd.o        \
+fileattrs.o      \
+filters.o        \
+filtype.o        \
+findcdir.o       \
+findfile.o       \
+go_to.o          \
+hisnext.o        \
+hispred.o        \
+init.o           \
+inp_menu.o       \
+inregular.o      \
+invertselect.o   \
+main.o           \
+makedir.o        \
+menus.o          \
+my_getcwd.o      \
+outattrs.o       \
+outwin.o         \
+popdn.o          \
+read_setup.o     \
+read_to_panel.o  \
+refr_inp.o       \
+refr_panel.o     \
+renmove.o        \
+save_setup.o     \
+selectgroup.o    \
+set_clear.o      \
+soob.o           \
+swap_bin.o       \
+tst_err_malloc.o \
+getkey_.o        \
+kb_asin.o        \
+keyscmd_.o       \
+setkey_.o        \
+t_termlib.o      \
+do_exit.o        \
+alrm_hand.o      \
+do_alarms.o      \
+viewfile.o       \
+recode.o         \
+viewkill.o       \
+my_raw.o           \
+filesys_inf.o    \
+show_inf.o       \
+mknumber.o       \
+name_to_out.o    \
+ext_view.o       \
+ext_enter.o      \
+ext_action.o     \
+refr_brief.o     \
+misc.o           \
+files_on_page.o  \
+-lcurses -ltermlib -s '-mr,"`date`"'
+Sun Nov  9 17:26:33 MSK 1997
